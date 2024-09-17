@@ -16,7 +16,7 @@ Download the Script
 
 Save the script as install_daloradius.sh on your server.
 
-You can use a text editor like nano:
+You can use a text editor like vim or nano:
 
 bash
 Copy code
