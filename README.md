@@ -1,81 +1,91 @@
-# daloradius
-Overview
 
-This repository contains a Bash script that automates the installation and configuration of daloRADIUS and FreeRADIUS on a Linux system. The script configures MySQL as the backend for FreeRADIUS and sets up Apache as the web server for daloRADIUS.
+### Overview
+
+This repository contains a **Bash script** that automates the installation and configuration of **daloRADIUS** and **FreeRADIUS** on a Linux system. The script configures MySQL as the backend for FreeRADIUS and sets up Apache as the web server for daloRADIUS.
 
 This script has built-in error handling, ensuring minimal issues during installation, and checks for essential services and files throughout the process.
 
-Prerequisites
+### Prerequisites
+
 Before running the script, ensure the following requirements are met:
 
-Operating System: Ubuntu 20.04 (or later) or any Debian-based distribution.
-Root Privileges: You must run the script as root or with sudo.
-Internet Access: The system must have internet access to download the necessary packages.
-Installation Steps
-Download the Script
+- **Operating System:** Ubuntu 20.04 (or later) or any Debian-based distribution.
+- **Root Privileges:** You must run the script as `root` or with `sudo`.
+- **Internet Access:** The system must have internet access to download the necessary packages.
 
-Save the script as install_daloradius.sh on your server.
+### Installation Steps
 
-You can use a text editor like vim or nano:
+1. **Download the Script**
 
-bash
-Copy code
-nano install_daloradius.sh
-Then, paste the content of the script provided into the file.
+   Save the script as `install_daloradius.sh` on your server.
 
-Make the Script Executable
+   You can use a text editor like `nano`:
 
-To give the script executable permissions, run:
+   ```bash
+   nano install_daloradius.sh
+   ```
 
-bash
-Copy code
-chmod +x install_daloradius.sh
-Run the Script
+   Then, paste the content of the script provided into the file.
 
-Execute the script using sudo:
+2. **Make the Script Executable**
 
-bash
-Copy code
-sudo ./install_daloradius.sh
-Follow the Prompts
+   To give the script executable permissions, run:
 
-The script will ask for the MySQL root password during the installation process to create the necessary database and user for FreeRADIUS and daloRADIUS.
-If any errors occur, the script will display detailed error messages and stop execution. Review the error message and correct any issues before rerunning the script.
-Default Credentials
+   ```bash
+   chmod +x install_daloradius.sh
+   ```
+
+3. **Run the Script**
+
+   Execute the script using `sudo`:
+
+   ```bash
+   sudo ./install_daloradius.sh
+   ```
+
+4. **Follow the Prompts**
+
+   - The script will ask for the **MySQL root password** during the installation process to create the necessary database and user for FreeRADIUS and daloRADIUS.
+   - If any errors occur, the script will display detailed error messages and stop execution. Review the error message and correct any issues before rerunning the script.
+
+### Default Credentials
+
 After installation, access the daloRADIUS web interface via the following URL:
 
-arduino
-Copy code
+```
 http://<YOUR_SERVER_IP>/daloradius
+```
+
 The default credentials are:
 
-Username: administrator
-Password: radius
+- **Username:** `administrator`
+- **Password:** `radius`
+
 You should change these credentials after the first login for security purposes.
 
-Customization
-If you want to customize the MySQL database name, user, or password, modify the following variables at the top of the script before running it:
+### Customization
 
-bash
-Copy code
+If you want to customize the **MySQL database name**, **user**, or **password**, modify the following variables at the top of the script before running it:
+
+```bash
 DB_NAME="radius"
 DB_USER="radius"
 DB_PASS="password"
-Error Handling and Troubleshooting
+```
+
+### Error Handling and Troubleshooting
+
 This script is designed to handle most errors during the installation process. Some of the key points of error handling include:
 
-Root Privileges: The script checks if it’s being run as root and exits if not.
-MySQL Authentication: If the provided MySQL root password is incorrect, the script will stop and prompt you to enter the correct password.
-File and Directory Checks: The script checks if files and directories (such as daloRADIUS or Apache configuration) already exist, preventing overwriting or duplication.
-Service Restarts: After each significant configuration change, the script restarts the relevant services (FreeRADIUS, Apache) and checks if the restart was successful.
+- **Root Privileges:** The script checks if it’s being run as root and exits if not.
+- **MySQL Authentication:** If the provided MySQL root password is incorrect, the script will stop and prompt you to enter the correct password.
+- **File and Directory Checks:** The script checks if files and directories (such as daloRADIUS or Apache configuration) already exist, preventing overwriting or duplication.
+- **Service Restarts:** After each significant configuration change, the script restarts the relevant services (FreeRADIUS, Apache) and checks if the restart was successful.
+
 If the script fails at any point, you will see an error message indicating where the issue occurred. You can resolve the issue and rerun the script.
 
-Additional Notes
-Ensure that port 80 is open if you plan to access the daloRADIUS web interface remotely.
-For security purposes, consider updating the default MySQL password after installation.
-To increase security further, enable SSL/TLS on your Apache web server to encrypt web traffic to daloRADIUS.
+### Additional Notes
 
-Support
-If you encounter any issues during installation, feel free to open an issue or contact the repository owner for support.
-
-This README now includes comprehensive information about the script, steps to execute, and how to handle errors, making it easier to manage potential issues and customize the installation.
+- Ensure that **port 80** is open if you plan to access the daloRADIUS web interface remotely.
+- For security purposes, consider updating the default MySQL password after installation.
+- To increase security further, enable SSL/TLS on your Apache web server to encrypt web traffic to daloRADIUS.
