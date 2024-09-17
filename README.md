@@ -1,5 +1,6 @@
 # daloradius
 Overview
+
 This repository contains a Bash script that automates the installation and configuration of daloRADIUS and FreeRADIUS on a Linux system. The script configures MySQL as the backend for FreeRADIUS and sets up Apache as the web server for daloRADIUS.
 
 This script has built-in error handling, ensuring minimal issues during installation, and checks for essential services and files throughout the process.
